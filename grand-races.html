@@ -1,0 +1,244 @@
+<html>
+<head>
+	<title>All about Grand Races in The Crew: Motorfest</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<style>
+		[data-index].fw-bold :first-child
+		{
+			font-weight: 600 !important;
+		}
+	</style>
+</head>
+<body data-bs-theme="dark" class="container-fluid pt-2">
+	<div class="row">
+		<div class="col-xl-6 mb-3">
+			<h2>Schedule</h2>
+			<p class="mb-2"><a href="#" onclick="event.preventDefault();rotateSchedule(-1);">Previous Rotation</a> &middot; <a href="#" onclick="event.preventDefault();rotateSchedule(+1);">Next Rotation</a></p>
+			<table id="schedule"></table>
+		</div>
+		<div class="col-xl-6">
+			<h2>Rewards</h2>
+			<p class="mb-2">
+				Number of players (at start):
+				<select>
+					<option>28</option>
+					<option>27</option>
+					<option>26</option>
+					<option>25</option>
+					<option>24</option>
+					<option>23</option>
+					<option>22</option>
+					<option>21</option>
+					<option>20</option>
+					<option>19</option>
+					<option>18</option>
+					<option>17</option>
+					<option>16</option>
+					<option>15</option>
+					<option>14</option>
+					<option>13</option>
+					<option>12</option>
+					<option>11</option>
+					<option>10</option>
+					<option>9</option>
+					<option>8</option>
+				</select>
+			</p>
+			<table id="rewards">
+				<tr><td class="pe-2"><b>1</b>st</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+				<tr><td class="pe-2"><b>2</b>nd</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+				<tr><td class="pe-2"><b>3</b>rd</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+				<tr><td class="pe-2"><b>4</b>th</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+			</table>
+			<p class="mt-3 mb-1 fw-semibold">Got a different reward in-game?</p>
+			<ol>
+				<li>Open the rankings and scroll to the bottom to determine the actual player count.</li>
+				<li><a href="https://github.com/calamity-inc/motorfe.st/issues/new" target="_blank">Submit an issue on Github.</a></li>
+			</ol>
+		</div>
+	</div>
+</body>
+<script>
+	// === Schedule ===
+
+	const ROTATION_START = 1725129900;
+	const ROTATION = [
+		/* 1 */ [ "Kaleaola", "Rally Raid > Rally > Drift" ],
+		/* 2 */ [ "Ma'akua Black Beach", "Hypercar > AGP > Racing" ],
+		/* 3 */ [ "Waikiki", "ST2 > Hypercar > Racing" ],
+		/* 4 */ [ "Kaena Point", "ST2 > Rally > Motocross" ],
+		/* 5 */ [ "Nuuanu - Punchbowl", "Drift > Racing > ST2" ],
+		/* 6 */ [ "Haleiwa", "Monster > Hypercar > AGP" ],
+		/* 7 */ [ "Mauna Pele", "RR > ST2 > AGP" ],
+		/* 8 */ [ "Diamond Head", "Hypercar > Rally > AGP" ],
+		/* 9 */ [ "Wahiawa Fields", "Hypercar > ST1 > AGP" ],
+		/* 10 */ [ "Kahuku", "ST2 > RR > Racing" ],
+		/* 11 */ [ "Kanehoe", "Monster > Racing > ST2" ],
+		/* 12 */ [ "Kaleaola", "Hypercar > AGP > Racing" ],
+		/* 13 */ [ "Ma'akua Black Beach", "ST1 > RR > ST2" ],
+		/* 14 */ [ "Nuuanu - Punchbowl", "Motocross > RR / Plane > Rally" ],
+		/* 15 */ [ "Waikiki", "ST2 > AGP > RR" ],
+		/* 16 */ [ "Kaena Point", "ST1 > ST2 > Hypercar" ],
+		/* 17 */ [ "Haleiwa", "ST2 > ST1 > Hypercar" ],
+		/* 18 */ [ "Kaneohe", "Hypercar > Rally > Racing" ],
+		/* 19 */ [ "Mauna Pele", "ST1 > Hypercar / Plane > Racing" ],
+		/* 20 */ [ "Wahiawa Fields", "Hypercar > ST2 > RR" ],
+		/* 21 */ [ "Kahuku", "RR > Motocross > Monster" ],
+		/* 22 */ [ "Diamond Head", "ST1 > RR > Hypercar" ],
+	];
+	const EVENT_DURATION = 30 * 60;
+	const ROTATION_DURATION = ROTATION.length * EVENT_DURATION;
+
+	function getCurrentEventIndex()
+	{
+		return ((((new Date() / 1000) - ROTATION_START) % ROTATION_DURATION) / EVENT_DURATION) | 0;
+	}
+
+	function getRotationStart(rotation_delta)
+	{
+		return ROTATION_START + (rotation_delta * ROTATION_DURATION);
+	}
+
+	let rotation_offset = 0;
+
+	function renderSchedule()
+	{
+		const current_event_index = (rotation_offset == 0 ? getCurrentEventIndex() : -1);
+		const time_delta = ((new Date() / 1000) - ROTATION_START);
+		const rotation_delta = (time_delta / ROTATION_DURATION) | 0;
+		let event_time = getRotationStart(rotation_delta + rotation_offset);
+		for (let i = 0; i != ROTATION.length; ++i)
+		{
+			const event = ROTATION[i];
+
+			event[1] = event[1]
+				.split("AGP").join("Alpha GP")
+				.split("RR").join("Rally Raid")
+				.split("ST1").join("Street Tier 1")
+				.split("ST2").join("Street Tier 2")
+				;
+
+			const tr = document.createElement("tr");
+			tr.setAttribute("data-index", i);
+			if (i == current_event_index)
+			{
+				tr.className = "fw-bold";
+			}
+			{
+				const td = document.createElement("td");
+				td.className = "pe-2";
+				td.textContent = new Date(event_time * 1000).toLocaleString([], {month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"});;
+				tr.appendChild(td);
+			}
+			{
+				const td = document.createElement("td");
+				td.className = "text-end pe-2";
+				td.textContent = event[0];
+				tr.appendChild(td);
+			}
+			{
+				const td = document.createElement("td");
+				td.textContent = event[1];
+				tr.appendChild(td);
+			}
+			document.getElementById("schedule").appendChild(tr);
+
+			event_time += EVENT_DURATION;
+		}
+	}
+
+	renderSchedule();
+
+	setInterval(function()
+	{
+		if (rotation_offset == 0)
+		{
+			document.querySelector("[data-index].fw-bold").classList.remove("fw-bold");
+			document.querySelector("[data-index='"+getCurrentEventIndex()+"']").classList.add("fw-bold");
+		}
+	}, 60000);
+
+	function rotateSchedule(delta)
+	{
+		rotation_offset += delta;
+		document.getElementById("schedule").innerHTML = "";
+		renderSchedule();
+	}
+
+	// === Rewards ===
+
+	// Bucks, XP
+	const REWARDS = {
+		101: [101250, 54000],
+		93: [93150, 49680],
+		85: [85050, 45359],
+		81: [81000, 43200],
+		68: [68850, 36720], // "+50%"; 39,312 XP with 12% difficulty bonus
+		76: [76950, 41040],
+		72: [72900, 38880],
+		60: [60750, 32400],
+		56: [56700, 30240], // "+20%"; 32,832 XP with 12% difficulty bonus
+		52: [52650, 28079], // "+10%"; 30,672 XP with 12% difficulty bonus
+	};
+
+	const REWARDS_MATRIX = {
+		//    #1   #2  #3  #4  #5  #6  #7  #8  #9 #10 #11 #12 #13 #14 #15 #16 #17 #18 #19 #20 #21 #22 #23 #24 #25 #26 #27 #28
+		28: [ 101, 85, 81, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52, 52, 52 ],
+		27: [  93, 85, 81, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52, 52 ],
+		26: [  93, 85, 81, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52 ],
+		25: [  93, 85, 81, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52 ],
+		24: [  93, 85, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52, 52 ],
+		23: [  93, 85, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52 ],
+		22: [  85, 76, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52 ],
+		21: [  85, 76, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52 ],
+		20: [  85, 76, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56 ],
+		19: [  85, 76, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56 ],
+		18: [  85, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56 ],
+		17: [  81, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56 ],
+		16: [  81, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56 ],
+		15: [  81, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68 ],
+		14: [  81, 72, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
+		13: [  81, 60, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
+		12: [  68, 60, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
+		11: [  68, 60, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
+		10: [  68, 60, 56, 56, 56, 56, 56, 56, 56, 56 ],
+		 9: [  68, 60, 56, 56, 56, 56, 56, 56, 56 ],
+		 8: [  68, 60, 52, 52, 52, 52, 52, 52 ],
+	};
+
+	const POSITION_SUFFIX = [ "st", "nd" ];
+
+	function renderRewards()
+	{
+		document.getElementById("rewards").innerHTML = "";
+		const participants = document.querySelector("select").value | 0;
+		for (let i = 0; i != participants; ++i)
+		{
+			const rewards = REWARDS[REWARDS_MATRIX[participants][i]];
+
+			const tr = document.createElement("tr");
+			{
+				const td = document.createElement("td");
+				td.className = "pe-2";
+				td.innerHTML = "<b>" + (i + 1) + "</b>" + (POSITION_SUFFIX[i] ?? "th");
+				tr.appendChild(td);
+			}
+			{
+				const td = document.createElement("td");
+				td.className = "pe-2 text-end";
+				td.textContent = rewards[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " Bucks";
+				tr.appendChild(td);
+			}
+			{
+				const td = document.createElement("td");
+				td.textContent = rewards[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " XP";
+				tr.appendChild(td);
+			}
+			document.getElementById("rewards").appendChild(tr);
+		}
+	}
+	renderRewards();
+	document.querySelector("select").onchange = renderRewards;
+</script>
+</html>
