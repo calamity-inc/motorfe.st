@@ -207,8 +207,6 @@
 		 8: [  68, 60, 52, 52, 52, 52, 52, 52 ],
 	};
 
-	const POSITION_SUFFIX = [ "st", "nd" ];
-
 	function renderRewards()
 	{
 		document.getElementById("rewards").innerHTML = "";
@@ -219,9 +217,11 @@
 
 			const tr = document.createElement("tr");
 			{
+				const pos = (i + 1);
+
 				const td = document.createElement("td");
 				td.className = "pe-2";
-				td.innerHTML = "<b>" + (i + 1) + "</b>" + (POSITION_SUFFIX[i] ?? "th");
+				td.innerHTML = "<b>" + pos + "</b>" + ((pos == 1 || pos == 21) ? "st" : (pos == 2 || pos == 22) ? "nd" : "th");
 				tr.appendChild(td);
 			}
 			{
