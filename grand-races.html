@@ -226,7 +226,7 @@
 			}
 			{
 				const td = document.createElement("td");
-				td.textContent = rewards[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " XP";
+				td.textContent = rewards[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " XP";
 				tr.appendChild(td);
 			}
 			document.getElementById("rewards").appendChild(tr);
