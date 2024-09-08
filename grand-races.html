@@ -98,6 +98,8 @@
 
 	function renderSchedule()
 	{
+		document.getElementById("schedule").innerHTML = "";
+
 		const current_event_index = (rotation_offset == 0 ? getCurrentEventIndex() : -1);
 		const time_delta = ((new Date() / 1000) - ROTATION_START);
 		const rotation_delta = (time_delta / ROTATION_DURATION) | 0;
@@ -148,15 +150,13 @@
 	{
 		if (rotation_offset == 0)
 		{
-			document.querySelector("[data-index].fw-semibold").className = "";
-			document.querySelector("[data-index='"+getCurrentEventIndex()+"']").className = "fw-semibold bg-secondary-subtle";
+			renderSchedule();
 		}
 	}, 60000);
 
 	function rotateSchedule(delta)
 	{
 		rotation_offset += delta;
-		document.getElementById("schedule").innerHTML = "";
 		renderSchedule();
 	}
 
