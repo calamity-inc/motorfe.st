@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+	<title>All about Grand Races in The Crew Motorfest</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body data-bs-theme="dark" class="container-fluid pt-2">
+	<div class="row">
+		<div class="col-xl-6 mb-3">
+			<h2>Schedule</h2>
+			<p class="mb-2"><a href="#" onclick="event.preventDefault();rotateSchedule(-1);">Previous Rotation</a> &middot; <a href="#" onclick="event.preventDefault();rotateSchedule(+1);">Next Rotation</a></p>
+			<table id="schedule"></table>
+		</div>
+		<div class="col-xl-6">
+			<h2>Rewards</h2>
+			<p class="mb-2">
+				<label for="reward-participants">Number of players*:</label>
+				<select id="reward-participants">
+					<option>28</option>
+					<option>27</option>
+					<option>26</option>
+					<option>25</option>
+					<option>24</option>
+					<option>23</option>
+					<option>22</option>
+					<option>21</option>
+					<option>20</option>
+					<option>19</option>
+					<option>18</option>
+					<option>17</option>
+					<option>16</option>
+					<option>15</option>
+					<option>14</option>
+					<option>13</option>
+					<option>12</option>
+					<option>11</option>
+					<option>10</option>
+					<option>9</option>
+					<option>8</option>
+				</select>
+			</p>
+			<table id="rewards">
+				<tr><td class="pe-2"><b>1</b>st</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+				<tr><td class="pe-2"><b>2</b>nd</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+				<tr><td class="pe-2"><b>3</b>rd</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+				<tr><td class="pe-2"><b>4</b>th</td><td class="pe-2">69,420 Bucks</td><td>69,420 XP</td></tr>
+			</table>
+			<p class="mt-2 mb-1">* The player count is measured somewhat inconsistently. It seems to be  based on the number shown during the race in most cases, but if the ranking screen at the end shows a lower number of players, that one is used instead.</p>
+			<p class="mt-2 mb-1"><span class="fw-semibold">Got a different reward in-game?</span> <a href="https://github.com/calamity-inc/motorfe.st/issues/new" target="_blank">Submit an issue on Github.</a></p>
+		</div>
+	</div>
+	<script src="schedule.js"></script>
+	<script src="rewards.js"></script>
+</body>
+</html>
