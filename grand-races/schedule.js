@@ -1,4 +1,4 @@
-const ROTATION_START = 1730951453;
+const ROTATION_START = 1730951400;
 const ROTATION = [
 	["Ma'akua Black Beach", "Rally > RR > ST2" ],
 	["Diamond Head", "Hypercar > RR > ST2"],
