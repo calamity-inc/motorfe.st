@@ -2,7 +2,7 @@ const ROTATION_START = 1730951453;
 const ROTATION = [
 	["Ma'akua Black Beach", "Rally > RR > ST2" ],
 	["Diamond Head", "Hypercar > RR > ST2"],
-	["Kalaeloa", "Motocross > Rally > Drift"],
+	["Kalaeloa", "Motocross > Rally / Plane > Drift"],
 	["Diamond Head", "AGP > Rally > ST2" ],
 	["Wailea", "Hypercar > AGP > ST2"],
 	["Kula", "AGP > ST2 > Hypercar"],
