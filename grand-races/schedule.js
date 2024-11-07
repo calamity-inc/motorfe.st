@@ -74,7 +74,18 @@ function renderSchedule()
 		{
 			const td = document.createElement("td");
 			td.className = "text-end pe-2";
-			td.textContent = event[0];
+			if (["Wailea", "Kula", "Kealaloloa", "Kahakuloa"].indexOf(event[0]) != -1) // Starts on Maui?
+			{
+				td.textContent = " " + event[0];
+				const tag = document.createElement("span");
+				tag.className = "badge text-bg-success";
+				tag.textContent = "New";
+				td.insertBefore(tag, td.firstChild);
+			}
+			else // Starts on Oahu
+			{
+				td.textContent = event[0];
+			}
 			tr.appendChild(td);
 		}
 		{
