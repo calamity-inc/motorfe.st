@@ -3,27 +3,27 @@ const ROTATION = [
 	["Ma'akua Black Beach", "Rally > RR > ST2"],
 	["Diamond Head", "Hypercar > RR > ST2"],
 	["Kalaeloa", "Motocross > Rally / Plane > Drift"],
-	["Diamond Head", "AGP > Rally > ST2"],
+	["Diamond Head", "AGP > Rally > ST2", "No Collisions"],
 	["Wailea", "Hypercar > AGP > ST2"],
 	["Kula", "AGP > ST2 > Hypercar"],
 	["Ma'akua Black Beach", "Racing > Hypercar > AGP"],
-	["Waikiki", "Racing > Hypercar > ST2"],
+	["Waikiki", "Racing > Hypercar > ST2", "No Collisions"],
 	["Kahuku", "Monster > RR > Motocross"],
 	["Kealaloloa", "ST2 > RR > Racing"],
 	["Kahakuloa", "ST1 > Rally > ST2"],
-	["Kula", "Hypercar > Monster > AGP"],
+	["Kula", "Hypercar > Monster > AGP", "No Collisions"],
 	["Mauna Pele", "RR > Racing > Hypercar"],
 	["Nuuanu - Punchbowl", "Drift > ST1 > ST2"],
 	["Kaena Point", "ST1 > Motocross > RR"],
-	["Kealaloloa", "Racing > RR > Hypercar"],
+	["Kealaloloa", "Racing > RR > Hypercar", "No Collisions"],
 	["Kahakuloa", "ST1 > Rally > ST2"],
 	["Diamond Head", "Hypercar > Racing > ST2"],
 	["Wahiawa Fields", "AGP > Rally > Hypercar"],
-	["Nuuanu - Punchbowl", "Monster > RR / Plane > Rally"],
+	["Nuuanu - Punchbowl", "Monster > RR / Plane > Rally", "No Collisions"],
 	["Haleiwa", "Racing > ST1 > AGP"],
 	["Kula", "Racing > AGP > ST2"],
 	["Kula", "ST1 > RR > Hypercar"],
-	["Wailea", "Racing > ST1 > Hypercar"],
+	["Wailea", "Racing > ST1 > Hypercar", "No Collisions"],
 ];
 const EVENT_DURATION = 20 * 60;
 const ROTATION_DURATION = ROTATION.length * EVENT_DURATION;
@@ -80,6 +80,11 @@ function renderSchedule()
 		{
 			const td = document.createElement("td");
 			td.textContent = event[1];
+			tr.appendChild(td);
+		}
+		{
+			const td = document.createElement("td");
+			td.textContent = event[2] ?? "";
 			tr.appendChild(td);
 		}
 		document.getElementById("schedule").appendChild(tr);
