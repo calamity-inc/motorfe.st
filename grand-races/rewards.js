@@ -10,9 +10,9 @@ const REWARDS = {
 	81: [81000, 43200], // "+80%"; 45,792 XP with 12% difficulty bonus & 52,272 XP with an additional +30% from main stage
 	76: [76950, 41040], // "+70%"; 43,632 XP with 12% difficulty bonus
 	72: [72900, 38880], // "+60%"; 41,472 XP with 12% difficulty bonus & 47,952 XP with an additional +30% from main stage
-	68: [68850, 36720], // "+50%"; 39,312 XP with 12% difficulty bonus & 45,792 XP with an additional +30% from main stage
+	68: [68850, 36720], // "+50%"; 39,312 XP with 12% difficulty bonus & 45,792 XP with an additional +30% from main stage; 38,664 XP with 9% difficulty bonus
 	60: [60750, 32400],
-	56: [56700, 30240], // "+20%"; 32,832 XP with 12% difficulty bonus & 39,312 XP with an additional +30% from main stage
+	56: [56700, 30240], // "+20%"; 32,832 XP with 12% difficulty bonus & 39,312 XP with an additional +30% from main stage; 32,184 XP with 9% difficulty bonus
 	52: [52650, 28079], // "+10%"; 30,672 XP with 12% difficulty bonus
 };
 
@@ -26,8 +26,8 @@ const REWARDS_MATRIX = {
 	23: [  93, 85, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 52, 52, 52 ],
 	22: [  85, 76, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 52, 52 ],
 	21: [  85, 76, 72, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 52 ],
-	20: [  85, 76, 72, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
-	19: [  85, 76, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
+	20: [  85, 76, 72, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
+	19: [  85, 76, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
 	18: [  85, 72, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
 	17: [  81, 72, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
 	16: [  81, 72, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 ],
@@ -42,10 +42,14 @@ const REWARDS_MATRIX = {
 };
 
 console.assert(REWARDS_MATRIX[18][7 - 1] == 56);
+console.assert(REWARDS_MATRIX[20][9 - 1] == 56);
 console.assert(REWARDS_MATRIX[21][11 - 1] == 56);
+console.assert(REWARDS_MATRIX[23][10 - 1] == 68);
 console.assert(REWARDS_MATRIX[24][8 - 1] == 68);
+console.assert(REWARDS_MATRIX[24][15 - 1] == 56);
 console.assert(REWARDS_MATRIX[25][5 - 1] == 72);
 console.assert(REWARDS_MATRIX[25][12 - 1] == 68);
+console.assert(REWARDS_MATRIX[25][14 - 1] == 56);
 console.assert(REWARDS_MATRIX[26][7 - 1] == 72);
 console.assert(REWARDS_MATRIX[26][8 - 1] == 68);
 console.assert(REWARDS_MATRIX[26][10 - 1] == 68);
