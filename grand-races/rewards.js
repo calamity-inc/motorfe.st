@@ -18,8 +18,8 @@ const REWARDS = {
 
 const REWARDS_MATRIX = {
 	//    #1   #2  #3  #4  #5  #6  #7  #8  #9 #10 #11 #12 #13 #14 #15 #16 #17 #18 #19 #20 #21 #22 #23 #24 #25 #26 #27 #28
-	28: [ 101, 85, 81, 81, 81, 72, 72, 72, 72, 72, 72, 68, 68, 68, 68, 68, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52, 52, 52 ],
-	27: [  93, 85, 81, 81, 81, 72, 72, 72, 72, 72, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52, 52 ],
+	28: [ 101, 85, 81, 81, 81, 72, 72, 72, 72, 72, 72, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52, 52 ],
+	27: [  93, 85, 81, 81, 81, 72, 72, 72, 72, 72, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52 ],
 	26: [  93, 85, 81, 81, 81, 72, 72, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52, 52 ],
 	25: [  93, 85, 81, 81, 72, 72, 72, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 52, 52, 52, 52, 52 ],
 	24: [  93, 85, 72, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 56, 56, 56, 56, 56, 56, 56, 52, 52, 52, 52 ],
@@ -45,6 +45,8 @@ console.assert(REWARDS_MATRIX[16][5 - 1] == 56);
 console.assert(REWARDS_MATRIX[18][7 - 1] == 56);
 console.assert(REWARDS_MATRIX[20][9 - 1] == 56);
 console.assert(REWARDS_MATRIX[21][11 - 1] == 56);
+console.assert(REWARDS_MATRIX[21][12 - 1] == 56);
+console.assert(REWARDS_MATRIX[22][15 - 1] == 56);
 console.assert(REWARDS_MATRIX[23][10 - 1] == 68);
 console.assert(REWARDS_MATRIX[24][8 - 1] == 68);
 console.assert(REWARDS_MATRIX[24][15 - 1] == 56);
@@ -60,6 +62,7 @@ console.assert(REWARDS_MATRIX[27][6 - 1] == 72);
 console.assert(REWARDS_MATRIX[27][11 - 1] == 68);
 console.assert(REWARDS_MATRIX[27][15 - 1] == 68);
 console.assert(REWARDS_MATRIX[27][17 - 1] == 56);
+console.assert(REWARDS_MATRIX[27][21 - 1] == 56);
 console.assert(REWARDS_MATRIX[28][5 - 1] == 81);
 console.assert(REWARDS_MATRIX[28][7 - 1] == 72);
 console.assert(REWARDS_MATRIX[28][8 - 1] == 72);
