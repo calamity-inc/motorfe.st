@@ -10,7 +10,7 @@ const REWARDS = {
 	81: [81000, 43200], // "+80%"; 45,792 XP with 12% difficulty bonus & 52,272 XP with an additional +30% from main stage
 	76: [76950, 41040], // "+70%"; 43,632 XP with 12% difficulty bonus
 	72: [72900, 38880], // "+60%"; 41,472 XP with 12% difficulty bonus & 47,952 XP with an additional +30% from main stage
-	68: [68850, 36720], // "+50%"; 39,312 XP with 12% difficulty bonus & 45,792 XP with an additional +30% from main stage; 38,664 XP with 9% difficulty bonus
+	68: [68850, 36720], // "+50%"; 39,312 XP with 12% difficulty bonus, 42,552 XP with +15% from main stage & 45,792 XP with +30% from main stage; 38,664 XP with 9% difficulty bonus
 	60: [60750, 32400],
 	56: [56700, 30240], // "+20%"; 32,832 XP with 12% difficulty bonus & 39,312 XP with an additional +30% from main stage; 32,184 XP with 9% difficulty bonus
 	52: [52650, 28079], // "+10%"; 30,672 XP with 12% difficulty bonus
@@ -50,6 +50,7 @@ console.assert(REWARDS_MATRIX[22][15 - 1] == 56);
 console.assert(REWARDS_MATRIX[23][10 - 1] == 68);
 console.assert(REWARDS_MATRIX[24][7 - 1] == 72);
 console.assert(REWARDS_MATRIX[24][8 - 1] == 68);
+console.assert(REWARDS_MATRIX[24][12 - 1] == 68);
 console.assert(REWARDS_MATRIX[24][15 - 1] == 56);
 console.assert(REWARDS_MATRIX[25][5 - 1] == 72);
 console.assert(REWARDS_MATRIX[25][11 - 1] == 68);
@@ -59,10 +60,12 @@ console.assert(REWARDS_MATRIX[26][7 - 1] == 72);
 console.assert(REWARDS_MATRIX[26][8 - 1] == 68);
 console.assert(REWARDS_MATRIX[26][10 - 1] == 68);
 console.assert(REWARDS_MATRIX[26][12 - 1] == 68);
+console.assert(REWARDS_MATRIX[26][17 - 1] == 56);
 console.assert(REWARDS_MATRIX[27][4 - 1] == 81);
 console.assert(REWARDS_MATRIX[27][6 - 1] == 72);
 console.assert(REWARDS_MATRIX[27][11 - 1] == 68);
 console.assert(REWARDS_MATRIX[27][15 - 1] == 68);
+console.assert(REWARDS_MATRIX[27][16 - 1] == 56);
 console.assert(REWARDS_MATRIX[27][17 - 1] == 56);
 console.assert(REWARDS_MATRIX[27][21 - 1] == 56);
 console.assert(REWARDS_MATRIX[28][5 - 1] == 81);
