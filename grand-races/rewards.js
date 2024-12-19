@@ -77,6 +77,27 @@ console.assert(REWARDS_MATRIX[28][13 - 1] == 68);
 console.assert(REWARDS_MATRIX[28][15 - 1] == 68);
 console.assert(REWARDS_MATRIX[28][17 - 1] == 56);
 
+function getPositionSuffix(pos)
+{
+	if (pos < 10 || pos >= 20)
+	{
+		const last_digit = pos % 10;
+		if (last_digit == 1)
+		{
+			return "st";
+		}
+		if (last_digit == 2)
+		{
+			return "nd";
+		}
+		if (last_digit == 3)
+		{
+			return "rd";
+		}
+	}
+	return "th";
+}
+
 function renderRewards()
 {
 	document.getElementById("rewards").innerHTML = "";
@@ -91,7 +112,7 @@ function renderRewards()
 
 			const td = document.createElement("td");
 			td.className = "pe-2";
-			td.innerHTML = "<b>" + pos + "</b>" + ((pos == 1 || pos == 21) ? "st" : (pos == 2 || pos == 22) ? "nd" : "th");
+			td.innerHTML = "<b>" + pos + "</b>" + getPositionSuffix(pos);
 			tr.appendChild(td);
 		}
 		{
