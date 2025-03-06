@@ -67,7 +67,7 @@ function renderSchedule()
 		}
 		{
 			const td = document.createElement("td");
-			td.className = "pe-2";
+			td.className = "ps-1 pe-2";
 			td.textContent = new Date(event_time * 1000).toLocaleString([], {month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"});;
 			tr.appendChild(td);
 		}
@@ -84,6 +84,7 @@ function renderSchedule()
 		}
 		{
 			const td = document.createElement("td");
+			td.className = "text-center pe-2";
 			td.textContent = event[2] ?? "";
 			tr.appendChild(td);
 		}
