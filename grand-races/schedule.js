@@ -1,5 +1,9 @@
-const ROTATION_START = 1741263000;
+const ROTATION_START = 1741258200;
 const ROTATION = [
+	["Kahakuloa", "ST1 > Rally > ST2"],
+	["Kalaeloa", "AGP > Hyper > ST1"],
+	["Mauna Pele", "Racing > AGP > ST2"],
+	["Wahiawa Fields", "AGP > Racing > Rally", "Main Stage"],
 	["Diamond Head", "AGP > Rally > Racing"],
 	["???", "???"],
 	["Diamond Head", "Racing > Hyper > ST2"],
@@ -20,10 +24,6 @@ const ROTATION = [
 	["Wailea", "ST2 > Hyper > Racing"],
 	["Kula", "Racing > AGP > ST2"],
 	["Lahaina", "Hyper > ST2 > Racing", "Special Weather"],
-	["Kahakuloa", "ST1 > Rally > ST2"],
-	["Kalaeloa", "AGP > Hyper > ST1"],
-	["Mauna Pele", "Racing > AGP > ST2"],
-	["Wahiawa Fields", "AGP > Racing > Rally", "Main Stage"],
 ];
 const EVENT_DURATION = 20 * 60;
 const ROTATION_DURATION = ROTATION.length * EVENT_DURATION;
