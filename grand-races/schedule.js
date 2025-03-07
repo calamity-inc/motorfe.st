@@ -5,7 +5,7 @@ const ROTATION = [
 	["Mauna Pele", "Racing > AGP > ST2"],
 	["Wahiawa Fields", "AGP > Racing > Rally", "Main Stage"],
 	["Diamond Head", "AGP > Rally > Racing"],
-	["???", "???"],
+	["Kaena Point", "ST1 > Motocross > RR"],
 	["Diamond Head", "Racing > Hyper > ST2"],
 	["Kaena Point", "AGP > ST2 > Hyper", "No Collision"],
 	["Kaneohe", "RR > ST1 > Racing"],
