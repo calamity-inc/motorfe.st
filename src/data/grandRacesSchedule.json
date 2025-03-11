@@ -1,0 +1,109 @@
+{
+    "season": 6,
+    "rotationStart": 1741258200,
+    "eventDuration": 1200,
+    "rotation": [
+        [
+            "Kahakuloa",
+            "ST1 > Rally > ST2"
+        ],
+        [
+            "Kalaeloa",
+            "AGP > Hyper > ST1"
+        ],
+        [
+            "Mauna Pele",
+            "Racing > AGP > ST2"
+        ],
+        [
+            "Wahiawa Fields",
+            "AGP > Racing > Rally",
+            "Main Stage"
+        ],
+        [
+            "Diamond Head",
+            "AGP > Rally > Racing"
+        ],
+        [
+            "Kaena Point",
+            "ST1 > Motocross > RR"
+        ],
+        [
+            "Diamond Head",
+            "Racing > Hyper > ST2"
+        ],
+        [
+            "Kaena Point",
+            "AGP > ST2 > Hyper",
+            "No Collision"
+        ],
+        [
+            "Kaneohe",
+            "RR > ST1 > Racing"
+        ],
+        [
+            "Haleiwa",
+            "Hyper > Racing > ST2"
+        ],
+        [
+            "Ma'akua Black Beach",
+            "ST2 > RR > Racing"
+        ],
+        [
+            "Haleiwa",
+            "Rally > AGP > Racing",
+            "Main Stage"
+        ],
+        [
+            "Waikiki",
+            "Racing > Hyper > ST2"
+        ],
+        [
+            "Wailea",
+            "AGP > Hyper > Racing"
+        ],
+        [
+            "Kalaeloa",
+            "Motocross > Rally/Plane > Drift"
+        ],
+        [
+            "Wahiawa Fields",
+            "AGP > ST2 > Hyper",
+            "No Collision"
+        ],
+        [
+            "Mauna Pele",
+            "Rally > ST1 > Hyper"
+        ],
+        [
+            "Kealaloloa",
+            "ST1 > RR > Hyper"
+        ],
+        [
+            "Nuuanu - Punchbowl",
+            "Motocross > Monster > Rally"
+        ],
+        [
+            "Kahuku",
+            "Racing > Rally > AGP",
+            "Main Stage"
+        ],
+        [
+            "Ma'akua Black Beach",
+            "Hyper > ST2 > AGP"
+        ],
+        [
+            "Wailea",
+            "ST2 > Hyper > Racing"
+        ],
+        [
+            "Kula",
+            "Racing > AGP > ST2"
+        ],
+        [
+            "Lahaina",
+            "Hyper > ST2 > Racing",
+            "Special Weather"
+        ]
+    ]
+}
